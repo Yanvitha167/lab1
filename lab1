@@ -1,0 +1,85 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #e6efff;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            margin: auto;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #dashboard {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box" id="login">
+        <h2>User Login</h2>
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="loginUser()">Login</button>
+        <p id="message"></p>
+    </div>
+
+    <div class="box" id="dashboard">
+        <h2>User Dashboard</h2>
+        <h3 id="welcome"></h3>
+        <p>Welcome to your dashboard!</p>
+        <p>Login successful.</p>
+        <button onclick="logoutUser()">Logout</button>
+    </div>
+
+    <script>
+        function loginUser() {
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+
+            if (user === "" || pass === "") {
+                document.getElementById("message").innerHTML =
+                    "Please enter all details!";
+            } else {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("dashboard").style.display = "block";
+                document.getElementById("welcome").innerHTML =
+                    "Hello, " + user + "!";
+            }
+        }
+
+        function logoutUser() {
+            document.getElementById("dashboard").style.display = "none";
+            document.getElementById("login").style.display = "block";
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        }
+    </script>
+
+</body>
+</html>
+```
